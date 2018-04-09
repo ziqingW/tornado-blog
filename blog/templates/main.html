@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Main</title>
+        <link rel="stylesheet" href="/static/css/main.css" type="text/css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Acme|Bree+Serif" rel="stylesheet">
+    </head>
+    <body class="body-background">
+        <div class="post-background">
+        <div class="header container text-center">
+            <h1>Anime Heaven</h1>
+            <h3>Find the inner power of Kotaku</h3>
+        </div>
+        <hr>
+        <div class="container post-sign">
+        <h5>Post lists</h5>
+        </div>
+        <div class="table-background">
+            {% for post in posts %}
+            <div class="container">
+                <div class="row post-table">
+            <a href='/post/{{ post.blog_slug }}' class="col-12 col-md-7">
+            <h5>{{ post.blog_title }}</h5>
+            </a>
+            <p class="col-3 col-md-2 post-unit">{{ post.author_name }}</p>
+            <p class="col-9 col-md-3 post-unit">{{ post.publish_date }}</p>
+            </div>
+            </div>
+            <hr>
+            {% endfor %}
+        </div>
+        <form>
+                
+            </form>
+            </div>
+            <br>
+            <hr>
+    <footer class="container text-center">
+        <p>Designed by Ziqing</p>
+    </footer>    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>    
+    </body>
+    
+    
+</html>
