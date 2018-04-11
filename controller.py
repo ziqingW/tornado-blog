@@ -25,8 +25,7 @@ class TemplateHandler(tornado.web.RequestHandler):
         'postgresql://postgres@localhost:5432/blog_db')
     
     def get(self):
-        self.set_header('Cache-Control',
-      'no-store, no-cache, must-revalidate, max-age=0')
+        self.set_header('Cache-Control', 'private')
 
 class MainHandler(TemplateHandler):
     def get(self):
@@ -71,6 +70,7 @@ class NewpostHandler(TemplateHandler):
         return self.get_secure_cookie("user")
         
     def get(self):
+        super().get()
         if not self.current_user:
             self.redirect("/login")
             return
