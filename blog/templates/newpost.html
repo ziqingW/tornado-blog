@@ -3,14 +3,14 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{{ comments[0].blog_title }}</title>
-        <link rel="stylesheet" href="/static/css/page.css" type="text/css">
+        <title>new post</title>
+        <link rel="stylesheet" href="/static/css/newpost.css" type="text/css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Acme|Bree+Serif" rel="stylesheet">
     </head>
     <body class="body-background">
         <div class="post-background">
-            <div class="header container text-center">
+        <div class="header container text-center">
             <h1>Anime Heaven</h1>
             <h3>Find the inner power of Kotaku</h3>
         </div>
@@ -22,50 +22,31 @@
                         <a href="/list/movie">Movie</a>
         </div>
         <div class="container post-sign">
-        <h5>Post</h5>
+        <h5>New post</h5>
         </div>
         <div class="table-background">
-            <div class="container">
-                <h5>{{ comments[0].blog_title }}</h5>
-            <div class="post-unit">
-            <p>{{ comments[0].blog_author_name }}</p><p>{{ comments[0].blog_publish_date }}</p>
-            </div>
-            <hr>
-            <p>{{ comments[0].blog_contents }}</p>
-            </div>
-            </div>
-            <hr>
-            <div class="container post-sign">
-        <h5>Comments</h5>
-        </div>
-            
-                {% for comment in comments %}
-                <div class="table-background">
-                <div class="container">
-            <div class="post-unit">
-            <p>{{ comment.comment_name }}</p><p>{{ comment.comment_date }}</p>
-            </div>
-            <hr>
-            <p>{{ comment.comment_contents }}</p>
-            </div>
-            </div>
-            {% endfor %}
-            
-        <form class="container comment-form" method="POST">
-                <input class="container" type="text" name="name" placeholder="Your name" required>
-                <textarea class="container" name="new_comment" placeholder="Comment here" rows="4" required></textarea>
-                <div><button type="submit">Send Comment</button></div>
+            <form class="container newpost-form" method="POST">
+                <label for="subject">Subject</label>
+                <input class="container" type="text" id="subject" name="title" required>
+                <label for="category">Category</label>
+                <select class="container" id="category" name="category" required>
+                    <option value="anime" selected>Anime</option>
+                    <option value="game">Game</option>
+                    <option value="movie">Movie</option>
+                    <option value="announcement">Announcement</option>
+                </select>
+                <label for="slug">Slug</label>
+                <input class="container" type="text" id="slug" name="slug" required>
+                <label for="">Contents</label>
+                <textarea class="container" name="new_content" rows="4" required></textarea>
+                <div class="newbutton">
+                <button  type="submit">Post</button>
+                </div> 
             </form>
             </div>
-            <br>
-            <hr>
-    <footer class="container text-center">
-        <p>Designed by Ziqing</p>
-    </footer>    
+        </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>    
     </body>
-    
-    
 </html>

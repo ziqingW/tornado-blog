@@ -11,12 +11,16 @@
     padding-left: 1em;
     padding-right: 1em;
 }
+.post-sign {
+    font-family: 'Acme', sans-serif;
+    color: white;
+}
 .table-background {
     border: 2px solid black;
     border-radius: 25px;
     background-color: rgba(255,255,255,0.9);
-    margin-bottom: 1em
 }
+
 .header h1{
     font-family: 'Bree Serif', serif;
     text-shadow: 1px 1px 1px white;
@@ -27,54 +31,11 @@
     color: #37f241;
     text-shadow: 1px 1px 1px blue;
 }
-.post-sign {
-    font-family: 'Acme', sans-serif;
-    color: white;
-}
-.table-background h5 {
-    font-size: 1.1em;
-    color: black;
-    overflow: hidden;
-    color: #2b2a29;
-    padding-top: 0.8em;
-    font-family: 'Acme', sans-serif;
-}
-.post-unit {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 0.5em;
-}
+
 footer p{
     font-family: 'Bree Serif', serif;
     font-size: 0.9em;
     text-shadow: 1px 1px 1px white;
-}
-.comment-form {
-    margin-top: 2em;
-}
-.comment-form input {
-    width: 100%;
-    border: 1px solid grey;
-    border-radius: 5px;
-}
-.comment-form textarea {
-    margin-top: 0.5em;
-    width: 100%;
-    border: 1px solid grey;
-    border-radius: 5px;
-}
-.comment-form button {
-    border: 1px solid grey;
-    border-radius: 5px;
-    height: 40px;
-    color: white;
-    text-shadow: 1px 1px 1px black;
-    background-color: #09b721;
-}
-.comment-form div {
-    display: flex;
-    justify-content: center;
 }
 .bar {
     width: 70%;
@@ -89,4 +50,37 @@ footer p{
     font-size: 1.2em;
     text-shadow: 1px 1px 1px black;
     text-decoration: underline;
+}
+
+.newbutton {
+    display: flex;
+    justify-content: center;
+}
+.newbutton button{
+    width: 90px;
+    height: 35px;
+    border: 2px solid grey;
+    border-radius: 5px;
+    background-color: green;
+    color: white;
+    margin-top: 1em;
+    margin-bottom: 1em
+}
+.newpost-form {
+    margin-top: 0.5em;
+}
+.newpost-form input {
+    width: 100%;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+.newpost-form textarea {
+    width: 100%;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+.newpost-form label {
+    font-size: 0.9em;
+    margin-left: 0.5em;
+    margin-top: 0.5em;
 }

@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{{ comments[0].blog_title }}</title>
+        <title>{{ post[0].blog_title }}</title>
         <link rel="stylesheet" href="/static/css/page.css" type="text/css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Acme|Bree+Serif" rel="stylesheet">
@@ -26,31 +26,18 @@
         </div>
         <div class="table-background">
             <div class="container">
-                <h5>{{ comments[0].blog_title }}</h5>
+                <h5>{{ post[0].blog_title }}</h5>
             <div class="post-unit">
-            <p>{{ comments[0].blog_author_name }}</p><p>{{ comments[0].blog_publish_date }}</p>
+            <p>{{ post[0].blog_author_name }}</p><p>{{ post[0].blog_publish_date }}</p>
             </div>
             <hr>
-            <p>{{ comments[0].blog_contents }}</p>
+            <p>{{ post[0].blog_contents }}</p>
             </div>
             </div>
             <hr>
             <div class="container post-sign">
         <h5>Comments</h5>
         </div>
-            
-                {% for comment in comments %}
-                <div class="table-background">
-                <div class="container">
-            <div class="post-unit">
-            <p>{{ comment.comment_name }}</p><p>{{ comment.comment_date }}</p>
-            </div>
-            <hr>
-            <p>{{ comment.comment_contents }}</p>
-            </div>
-            </div>
-            {% endfor %}
-            
         <form class="container comment-form" method="POST">
                 <input class="container" type="text" name="name" placeholder="Your name" required>
                 <textarea class="container" name="new_comment" placeholder="Comment here" rows="4" required></textarea>

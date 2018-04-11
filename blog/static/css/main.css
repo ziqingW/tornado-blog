@@ -1,5 +1,6 @@
 .body-background {
-    background-color: #9bafe8;
+    background-image: url('../img/back.png');
+    background-size: cover;
 }
 .post-background {
     width: 90%;
@@ -12,6 +13,7 @@
 }
 .post-sign {
     font-family: 'Acme', sans-serif;
+    color: white;
 }
 .table-background {
     border: 2px solid black;
@@ -52,4 +54,32 @@ footer p{
     font-family: 'Bree Serif', serif;
     font-size: 0.9em;
     text-shadow: 1px 1px 1px white;
+}
+.bar {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+    
+}
+.bar a {
+    width: 100px;
+    color: #ea8585;
+    font-size: 1.2em;
+    text-shadow: 1px 1px 1px black;
+    text-decoration: underline;
+}
+
+.newbutton {
+    display: flex;
+    justify-content: center;
+}
+.newbutton button {
+    width: 90px;
+    height: 35px;
+    border: 2px solid grey;
+    border-radius: 5px;
+    background-color: green;
+    color: white;
+    margin-top: 1em;
 }
