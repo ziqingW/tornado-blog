@@ -71,7 +71,10 @@ class NewpostHandler(TemplateHandler):
         return self.get_secure_cookie("user")
         
     def get(self):
-        if not self.current_user: 
+        if not self.current_user:
+            self.redirect("/login")
+            return
+        elif self.current_user.decode("utf-8") != login_id: 
             self.redirect("/login")
             return
         self.render_template('newpost.html', {})
