@@ -12,6 +12,8 @@ ENV = Environment(
   loader=PackageLoader('blog', 'templates'),
   autoescape=select_autoescape(['html', 'xml'])
 )
+login_id=os.environ.get('LOGIN_ID')
+
 
 class TemplateHandler(tornado.web.RequestHandler):
     def render_template(self, tpl, context):
@@ -65,9 +67,15 @@ class ArchiveHandler(TemplateHandler):
         self.render_template('main.html', {'posts': posts})
         
 class NewpostHandler(TemplateHandler):
+    def get_current_user(self):
+        return self.get_secure_cookie("user")
+        
     def get(self):
-        super().get()
+        if not self.current_user: 
+            self.redirect("/login")
+            return
         self.render_template('newpost.html', {})
+            
         
     def post(self):
         new_post = self.get_body_argument('new_content', None)
@@ -79,16 +87,24 @@ class NewpostHandler(TemplateHandler):
         comment_time = time.strftime(fmt, ts)
         addPost = self.session.query('INSERT INTO blog VALUES (DEFAULT, %(comment_time)s, %(title)s, %(slug)s, %(contents)s, 1, %(category)s)', {'comment_time': comment_time, 'title': title, 'slug': slug, 'contents': new_post, 'category': category})
         
-    
+class Login(NewpostHandler):
+    def get(self):
+        self.render_template('login.html', {})
+        
+    def post(self):
+        self.set_secure_cookie("user", self.get_body_argument("username", "admin"))
+        self.redirect("/create_post")
+        
 def make_app():
     return tornado.web.Application([
         (r"/", MainHandler),
         (r"/post/(.*)", PageHandler),
         (r"/list/(.*)", ArchiveHandler),
+        (r"/login", Login),
         (r"/create_post", NewpostHandler),
         (r"/static/(.*)", tornado.web.StaticFileHandler,
         {'path': 'blog/static'})
-        ],
+        ], cookie_secret='61oETzKXQAGaYdkL5gEmGeJJFuYh7EQnp2XdTP1o/Vo=',
         autoreload=True)
         
 if __name__ == "__main__":
