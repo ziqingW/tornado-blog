@@ -22,7 +22,7 @@ class TemplateHandler(tornado.web.RequestHandler):
     
     def initialize(self):
         self.session = queries.Session(
-        'postgresql://postgres@localhost:5432/blog_db')
+        'postgresql://postgres@localhost:5432/newblog_db')
     
     def get(self):
         self.set_header('Cache-Control', 'private')
